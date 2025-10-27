@@ -11,12 +11,26 @@ export default function App() {
     const updatedItems = items.filter((item) => item.id !== itemId);
     setItems(updatedItems);
   };
+  const handleEditItem = (editedItem) => {
+    const updatedItems = items.map((item) => {
+      if (item.id === editedItem.id) {
+        return editedItem;
+      } else {
+        return item;
+      }
+    });
+    setItems(updatedItems);
+  };
 
   return (
     <>
       <Navbar />
       <AddGroceryForm handleOnAddItem={handleOnAddItem} />
-      <GroceryList items={items} handleDeleteItem={handleDeleteItem} />
+      <GroceryList
+        items={items}
+        handleDeleteItem={handleDeleteItem}
+        handleEditItem={handleEditItem}
+      />
     </>
   );
 }
