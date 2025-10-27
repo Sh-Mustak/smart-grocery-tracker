@@ -58,20 +58,13 @@ export default function AddGroceryForm({ handleOnAddItem }) {
 
       <div className="flex flex-col">
         <label className="text-sm font-semibold">Category</label>
-        <select
+        <input
           name="category"
           value={formData.category}
           onChange={handleChange}
           required
           className="border border-gray-300 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-green-400"
-        >
-          <option value="">Select</option>
-          <option value="Fruits">Fruits</option>
-          <option value="Vegetables">Vegetables</option>
-          <option value="Snacks">Snacks</option>
-          <option value="Drinks">Drinks</option>
-          <option value="Others">Others</option>
-        </select>
+        ></input>
       </div>
 
       <div className="flex flex-col">
