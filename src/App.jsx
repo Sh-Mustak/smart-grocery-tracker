@@ -4,6 +4,7 @@ import GroceryList from "./Components/GroceryList/GroceryList";
 import Navbar from "./Components/Header/navbar";
 export default function App() {
   const [items, setItems] = useState([]);
+  const [searchItem, setSearchItem] = useState("");
   const handleOnAddItem = (item) => {
     setItems([...items, item]);
   };
@@ -22,11 +23,14 @@ export default function App() {
     setItems(updatedItems);
   };
 
+ console.log("searchItem:", searchItem);
+
   return (
     <>
-      <Navbar />
+      <Navbar searchItem = {searchItem} setSearchItem={setSearchItem} />
       <AddGroceryForm handleOnAddItem={handleOnAddItem} />
       <GroceryList
+        searchItem={searchItem}
         items={items}
         handleDeleteItem={handleDeleteItem}
         handleEditItem={handleEditItem}
